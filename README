@@ -1,0 +1,15 @@
+SASS mixins for CSS3 (vendorprefixes / filters)
+===============================================
+
+Goals:
+-----------------------------------------------
+ 
+ * achieve CSS3 with the DRY principle
+ * short but easy-to-understand syntax
+ * easy to re-use in projects
+ 
+So far:
+-----------------------------------------------
+
+ * border-radius( x )
+ * border-radius-adv( tl, tr, br, bl )
