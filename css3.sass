@@ -1,1 +1,66 @@
-/* tbw */
+/* ==== CSS3 SASS MIXINS ====
+/* https://github.com/madr/css3-sass-mixins
+
+//  Should IE filters be used or not?
+//  PROS: gradients, drop shadows etc will be handled by css.
+//  CONS: will harm the site performance badly, 
+//        especially on sites with heavy rendering and scripting. 
+//
+// might be 0 or 1. disabled by default.
+$useIEFilters: 0
+
+// use the TRouBLE rule for shorthands.
+=border-radius($values)
+  -moz-border-radius: $values
+  -webkit-border-radius: $values
+  border-radius: $values
+
+// files must be put in the same directory
+=font-face($name, $filename)
+  font-family: #{$name}
+  src: url("#{filename}.eot")
+  src: local("☺"), url("#{filename}.woff") format("woff"), url("#{filename}.ttf") format("truetype")
+
+=box-shadow($value, $hex, $ie: $useIEFilters)
+  -moz-box-shadow: $values $hex
+  -o-box-shadow: $values $hex
+  -webkit-box-shadow: $values $hex
+  box-shadow: $values $hex
+  @if $ie == 1
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff')
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff')"
+
+=linear-gradient($to, $from, $ie: $useIEFilters)
+  background-image: -moz-linear-gradient(top, $to, $from)
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $to), color-stop(1, $from))
+  @if $ie == 1
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$to}', endColorstr='#{$from}')
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$to}', endColorstr='#{$from}')"
+
+=rgba($hex, $alpha, $ie: $useIEFilters)
+  @if $alpha > 1
+    $alpha: $alpha / 100
+  background-color: $hex
+  background-color: rgba(red($hex), green($hex), blue($hex), $alpha)
+  @if $ie == 1
+    $hexopac: ceil($alpha * 255 / 16 * 10)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}#{$hex}',EndColorStr='##{$hexopac}##{$hex}')
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}##{$hex}',EndColorStr='##{$hexopac}##{$hex}')"
+
+=rotate($deg, $ie: $useIEFilters)
+  -moz-transform: rotate($degdeg)
+  -o-transform: rotate($degdeg)
+  -webkit-transform: rotate($degdeg)
+  @if $ie == 1
+    filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',               M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381)
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', 
+             M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381)"
+    zoom: 1
+
+=transition($props, $duration, $effect)
+  -moz-transition: $props $duration $effect
+  -o-transition: $props $duration $effect
+  -webkit-transition: $props $duration $effect
+  transition: $props $duration $effect
+
+/* ==== /CSS3 SASS MIXINS ====

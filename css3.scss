@@ -1,29 +1,28 @@
 /* ==== CSS3 SASS MIXINS ==== */
 /* https://github.com/madr/css3-sass-mixins  */
 
-/* 
-  Should IE filters be used or not?
-  PROS: gradients, drop shadows etc will be handled by css.
-  CONS: will harm the site performance badly, 
-        especially on sites with heavy rendering and scripting. 
-*/
-$useIEFilters: 0; /* might be 0 or 1. disabled by default. */
+//  Should IE filters be used or not?
+//  PROS: gradients, drop shadows etc will be handled by css.
+//  CONS: will harm the site performance badly, 
+//        especially on sites with heavy rendering and scripting. 
+//
+// might be 0 or 1. disabled by default.
+$useIEFilters: 0; 
 
-/* use the TRouBLE rule for shorthands. */
+// use the TRouBLE rule for shorthands.
 @mixin border-radius ($values) {
   -moz-border-radius: $values;
   -webkit-border-radius: $values;
   border-radius: $values;
 }
 
-/* files must be put in the same directory */
+// files must be put in the same directory
 @mixin font-face ($name, $filename) {
   font-family: '#{$name}';
   src: url('#{filename}.eot');
   src: local('☺'), 
-      url('#{filename}.woff') format('woff'),
-      url('#{filename}.ttf') format('truetype');
-      /* todo: SVG support? */  
+    url('#{filename}.woff') format('woff'),
+    url('#{filename}.ttf') format('truetype');
 }
 
 @mixin box-shadow ($value, $hex, $ie: $useIEFilters) {
@@ -31,8 +30,8 @@ $useIEFilters: 0; /* might be 0 or 1. disabled by default. */
   -o-box-shadow: $values $hex;
   -webkit-box-shadow: $values $hex;
   box-shadow: $values $hex;
-  if ($ie == 1) {
-    /* todo: make this work, regexp on $values? */
+  
+  @if $ie == 1 {
     filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff');
     -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff')";
   }
@@ -41,6 +40,7 @@ $useIEFilters: 0; /* might be 0 or 1. disabled by default. */
 @mixin linear-gradient($to, $from, $ie: $useIEFilters) {
   background-image: -moz-linear-gradient(top, $to, $from);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $to),color-stop(1, $from));
+  
   @if $ie == 1 { 
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$to}', endColorstr='#{$from}');
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$to}', endColorstr='#{$from}')";
@@ -49,13 +49,15 @@ $useIEFilters: 0; /* might be 0 or 1. disabled by default. */
 
 @mixin rgba($hex, $alpha, $ie: $useIEFilters) {
   @if $alpha > 1 {
-    $alpha = $alpha/100;
+    $alpha: $alpha/100;
   }
+  
   background-color: $hex;
   background-color: rgba(red($hex), green($hex), blue($hex), $alpha);
+  
   @if $ie == 1 { 
-    /* todo: update with a better formula */
-    $hexopac = ceil((($alpha * 255)/16) *10);
+    $hexopac: ceil((($alpha * 255)/16) *10);
+    
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}#{$hex}',EndColorStr='##{$hexopac}##{$hex}');
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}##{$hex}',EndColorStr='##{$hexopac}##{$hex}')";
   }
