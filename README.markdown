@@ -30,7 +30,6 @@ Below you see all available mixins in action.
     #foo {
       @include border-radius(2px 2px 0);
       @include box-shadow(2px, 2px, 4px, #000);
-      @include font-face(FunctionProDemi, ../fonts/FunctionPro-Demi);
       @include linear-gradient(#333, #555);
       @include rgba(#000, .6);
       @include rotate(-7);
@@ -41,7 +40,6 @@ Below you see all available mixins in action.
     #foo
       +border-radius(2px 2px 0)
       +box-shadow(2px, 2px, 4px, #000)
-      +font-face(FunctionProDemi, ../fonts/FunctionPro-Demi)
       +linear-gradient(#333, #555)
       +rgba(#000, .6)
       +rotate(-7)

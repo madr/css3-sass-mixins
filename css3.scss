@@ -1,28 +1,16 @@
-/* ==== CSS3 SASS MIXINS ==== */
-/* https://github.com/madr/css3-sass-mixins  */
+// ==== CSS3 SASS MIXINS ==== 
+// https://github.com/madr/css3-sass-mixins
 
 //  Should IE filters be used or not?
 //  PROS: gradients, drop shadows etc will be handled by css.
 //  CONS: will harm the site performance badly, 
 //        especially on sites with heavy rendering and scripting. 
-//
-// might be 0 or 1. disabled by default.
-$useIEFilters: 0; 
+$useIEFilters: 0; // might be 0 or 1. disabled by default.
 
-// use the TRouBLE rule for shorthands.
 @mixin border-radius ($values) {
   -moz-border-radius: $values;
   -webkit-border-radius: $values;
   border-radius: $values;
-}
-
-// files must be put in the same directory
-@mixin font-face ($name, $filename) {
-  font-family: '#{$name}';
-  src: url('#{filename}.eot');
-  src: local('☺'), 
-    url('#{filename}.woff') format('woff'),
-    url('#{filename}.ttf') format('truetype');
 }
 
 @mixin box-shadow ($value, $hex, $ie: $useIEFilters) {
@@ -64,9 +52,9 @@ $useIEFilters: 0;
 }
 
 @mixin rotate ($deg, $ie: $useIEFilters) {
-  -moz-transform: rotate($degdeg);
-  -o-transform: rotate($degdeg);
-  -webkit-transform: rotate($degdeg);
+  -moz-transform: rotate(#{$deg}deg);
+  -o-transform: rotate(#{$deg}deg);
+  -webkit-transform: rotate(#{$deg}deg);
   @if $ie == 1 {
     filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', 
              M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381);
@@ -82,4 +70,4 @@ $useIEFilters: 0;
   -webkit-transition: $props $duration $effect;
   transition: $props $duration $effect;
 }
-/* ==== /CSS3 SASS MIXINS ==== */
+// ==== /CSS3 SASS MIXINS ====
