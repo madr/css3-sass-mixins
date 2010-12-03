@@ -57,10 +57,8 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   -o-transform: rotate(#{$deg}deg);
   -webkit-transform: rotate(#{$deg}deg);
   @if $ie == 1 {
-    filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', 
-             M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', 
-             M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381)";
+    filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381)";
     zoom: 1;
   }
 }
