@@ -13,15 +13,16 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   border-radius: $values;
 }
 
-@mixin box-shadow ($value, $hex, $ie: $useIEFilters) {
-  -moz-box-shadow: $values $hex;
-  -o-box-shadow: $values $hex;
-  -webkit-box-shadow: $values $hex;
-  box-shadow: $values $hex;
+@mixin box-shadow ($x, $y, $offset, $hex, $ie: $useIEFilters) {
+  -moz-box-shadow: $x $y $offset $hex;
+  -o-box-shadow: $x $y $offset $hex;
+  -webkit-box-shadow: $x $y $offset $hex;
+  box-shadow: $x $y $offset $hex;
   
   @if $ie == 1 {
-    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff');
-    -ms-filter: quote(progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff'));
+    $iecolor: '#' + red($hex) + green($hex) + blue($hex);
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x.to_i}px, OffY=#{$y.to_i}px, Color='#{$iecolor}');
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x.to_i}px, OffY=#{$y.to_i}px, Color='#{$iecolor}'));
   }
 }
 
@@ -39,19 +40,24 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   }
 }
 
-@mixin rgba($hex, $alpha, $ie: $useIEFilters) {
-  @if $alpha > 1 {
-    $alpha: $alpha/100;
-  }
+@mixin rgba($ie: $useIEFilters, $red, $green, $blue: undefined, $alpha: undefined) {     
+    // using short-hand of rgba(ie, hex, alpha)
+    @if $blue == undefined {
+        $alpha: $green;
+        $color: $red;
+        $red: red($color);
+        $green: green($color);
+        $blue: blue($color);
+    }
   
   background-color: $hex;
   background-color: rgba(red($hex), green($hex), blue($hex), $alpha);
   
   @if $ie == 1 { 
-    $hexopac: ceil((($alpha * 255)/16) *10);
+    $hexopac: '#' + ceil((($alpha * 255)/16) *10) + $hex;
     
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}#{$hex}',EndColorStr='##{$hexopac}##{$hex}');
-    -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}##{$hex}',EndColorStr='##{$hexopac}##{$hex}'));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$hexopac}',EndColorStr='#{$hexopac}}');
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$hexopac}',EndColorStr='#{$hexopac}'));
   }
 }
 
