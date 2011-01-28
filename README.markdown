@@ -4,8 +4,15 @@ SASS mixins for CSS3 (vendorprefixes / filters)
 Changelog
 ---------
 
-**Current version in development**: 0.1.0-alpha3
+**Current version in development**: 0.1.0-beta1
 
+* **0.1.0-alpha3** (January 28, 2011)
+   * Last alpha! 
+   * Basic QA in all mixins.
+   * syntax change in transitions (must handle commas in properties).
+   * hexdec will be available in sass 3.1, until then the rgba mixin will not be accurate in opacity in IE.
+   * Rotate is not possible in IE since COS is required to do the degree math. COS is implemented in Compass and may come to sass one day, but that is not sure.
+   * 
 * **0.1.0-alpha2** (November 26, 2010) 
    * Complete rewrite, now collected in two files easy to use together with @import.
    * simplification of border-radius.
@@ -33,7 +40,7 @@ Below you see all available mixins in action.
       @include linear-gradient(#333, #555);
       @include rgba(#000, .6);
       @include rotate(-7);
-      @include transition(all, 0.3s, ease-out);
+      @include transition(all 0.3s ease-out);
     }
     
     // sass (old style):
@@ -43,7 +50,7 @@ Below you see all available mixins in action.
       +linear-gradient(#333, #555)
       +rgba(#000, .6)
       +rotate(-7)
-      +transition(all, 0.3s, ease-out)
+      +transition(all 0.3s ease-out)
 
 IE Filters are optional
 -----------------------
