@@ -26,7 +26,10 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
 }
 
 @mixin linear-gradient($from, $to, $ie: $useIEFilters) {
-  background-color: $to;
+  @if $ie != 1 {
+    background-color: $to;
+  }
+  
   background-image: -moz-linear-gradient(top, $from, $to);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $from),color-stop(1, $to));
   
@@ -63,10 +66,12 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   }
 }
 
-@mixin transition ($props, $duration, $effect) {
-  -moz-transition: $props $duration $effect;
-  -o-transition: $props $duration $effect;
-  -webkit-transition: $props $duration $effect;
-  transition: $props $duration $effect;
+
+
+@mixin transition ($value) {
+  -moz-transition: $value;
+  -o-transition: $value;
+  -webkit-transition: $value;
+  transition: $value;
 }
 // ==== /CSS3 SASS MIXINS ====
