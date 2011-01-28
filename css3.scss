@@ -21,7 +21,7 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   
   @if $ie == 1 {
     filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff');
-    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff')";
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff'));
   }
 }
 
@@ -32,7 +32,7 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   
   @if $ie == 1 { 
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}')";
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}'));
   }
 }
 
@@ -48,7 +48,7 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
     $hexopac: ceil((($alpha * 255)/16) *10);
     
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}#{$hex}',EndColorStr='##{$hexopac}##{$hex}');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}##{$hex}',EndColorStr='##{$hexopac}##{$hex}')";
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorStr='##{$hexopac}##{$hex}',EndColorStr='##{$hexopac}##{$hex}'));
   }
 }
 
@@ -58,7 +58,7 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   -webkit-transform: rotate(#{$deg}deg);
   @if $ie == 1 {
     filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381)";
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381));
     zoom: 1;
   }
 }
