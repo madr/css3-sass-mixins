@@ -31,6 +31,13 @@ it would be silly to dishonor our addiction to the DRY principle.
 Usage & examples
 ----------------
 
+Clone the git repo in your SASS/SCSS project. Use @import to make it available in your files.
+
+    git clone http://git@github.com:madr/css3-sass-mixins.git
+    
+    // scss:
+    @import 'css3-sass-mixins/all';
+
 Below you see all available mixins in action. 
 
     // scss:
