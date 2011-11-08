@@ -23,7 +23,7 @@ Changelog
    * First commit, border-radius only.
 
 About
-------
+-----
 
 Similar to [CSS3 Please!](http://css3please.com), this repo will try to make it easier to use css3
 in our daily projects. CSS3 Please works fine if you are using vanilla CSS, but for those of us
@@ -74,6 +74,11 @@ To use or skip using IE-filters without affecting the global configuration, pass
     // use linear gradient in IE too!
     @include linear-gradient(#333, #555, 0);
     +linear-gradient(#333, #555, 0)
+
+License
+-------
+
+The code is free to use under the terms of the MIT license.
 
 Contributors
 ------------
