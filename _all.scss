@@ -29,6 +29,13 @@
 //        especially on sites with heavy rendering and scripting. 
 $useIEFilters: 0; // might be 0 or 1. disabled by default.
 
+@mixin border-image ($path, $offsets, $repeats) {
+  -moz-border-image: $path $offsets $repeats;
+  -o-border-image: $path $offsets $repeats;
+  -webkit-border-image: $path $offsets $repeats;
+  border-image: $path $offsets $repeats;
+}
+
 @mixin border-radius ($values) {
   -moz-border-radius: $values;
   -webkit-border-radius: $values;
@@ -37,7 +44,6 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
 
 @mixin box-shadow ($x, $y, $offset, $hex, $ie: $useIEFilters) {
   -moz-box-shadow: $x $y $offset $hex;
-  -o-box-shadow: $x $y $offset $hex;
   -webkit-box-shadow: $x $y $offset $hex;
   box-shadow: $x $y $offset $hex;
   
@@ -54,9 +60,10 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   }
   
   background-image: -moz-linear-gradient($from, $to);
+  background-image: -o-linear-gradient($from, $to);
+  background-image: -ms-linear-gradient($from, $to);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $from),color-stop(1, $to));
   background-image: -webkit-linear-gradient($from, $to);
-  background-image: -o-linear-gradient($from, $to);
 
   @if $ie == 1 { 
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
@@ -78,22 +85,26 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   }
 }
 
-@mixin rotate ($deg, $ie: $useIEFilters) {
+@mixin rotate ($deg) {
   -moz-transform: rotate(#{$deg}deg);
   -o-transform: rotate(#{$deg}deg);
+  -ms-transform: rotate(#{$deg}deg);
   -webkit-transform: rotate(#{$deg}deg);
-  // not ready, impediment: cos required!
-  //@if $ie == 1 {
-  //  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381);
-  //  -ms-filter: quote(progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.99144486137381, M12=--0.130526192220052, M21=0.130526192220052, M22=0.99144486137381));
-  //  zoom: 1;
-  //}
+}
+
+@mixin scale ($size) {
+	-moz-transform: scale(#{$size});
+	-o-transform: scale(#{$size});
+	-ms-transform: scale(#{$size});
+	-webkit-transform: scale(#{$size});
 }
 
 @mixin transition ($value) {
   -moz-transition: $value;
   -o-transition: $value;
+  -ms-transition: $value;
   -webkit-transition: $value;
   transition: $value;
 }
 // ==== /CSS3 SASS MIXINS ====
+
