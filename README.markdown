@@ -62,4 +62,4 @@ The code is free to use under the terms of the MIT license.
 Contributors
 ------------
 
-[VoQn](https://github.com/VoQn) (enchanged linear-gradient support), [PhilT](https://github.com/PhilT) (border-radius improvements)
+[VoQn](https://github.com/VoQn) (enchanged linear-gradient support), [PhilT](https://github.com/PhilT) (border-radius improvements) [justmarkup](https://github.com) (scale, IE10 prefixes, cleanup)
