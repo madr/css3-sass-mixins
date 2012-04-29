@@ -1,0 +1,22 @@
+@import 'css3sassmixins';
+@import 'skeleton';
+
+.example {
+    background: #eee;
+    color: #555;
+    border: 10px solid #aaa;
+    padding: 30px;
+
+    &:focus, &:hover {
+      color: #000;
+      border-color: #bada55;
+    }
+}
+
+.border-radius          { @include border-radius(5px 50px); }
+.box-shadow             { @include box-shadow(0, 3px, 10px, #000); }
+.linear-gradient        { @include linear-gradient(#333, #999); }
+.rgba                    { @include rgba(#000, .3); }
+.rotate                 { @include rotate(-5); }
+.scale                  { @include scale(1.2); }
+.transition             { @include transition(all .5s ease-out); }

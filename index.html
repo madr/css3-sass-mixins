@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS3 Sass mixins</title>
+        
+        <link href="site.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>CSS3 sass mixins Demo</h1>
+            <p>SASS mixins which makes it easy to use css3 in SASS or SCSS
+                            powered projects</p>
+                <a href="https://github.com/madr/css3-sass-mixins"
+                    class="button">Source on Github</a>
+                <a class="button" ref="http://twitter.com/madr">@madr on Twitter</a>
+                <hr>    
+                <h2>Give it a try!</h2>
+            <div class="doc-section clearfix">
+                <div class="eight columns alpha">
+                    <fieldset>
+                        <legend>Options</legend>
+                        <p>
+                        <label for="border-radius">
+                            <input type="checkbox" id="border-radius" checked><span>@include border-radius(5px 50px);</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label for="box-shadow">
+                            <input type="checkbox" id="box-shadow"><span>@include box-shadow(0, 3px, 10px, #000);</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label for="linear-gradient">
+                            <input type="checkbox" id="linear-gradient"><span>@include linear-gradient(#333, #999);</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label for="rgba">
+                            <input type="checkbox" id="rgba"><span>@include rgba(#000, .3);</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label for="rotate">
+                            <input type="checkbox" id="rotate"><span>@include rotate(-5);</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label for="scale">
+                            <input type="checkbox" id="scale"><span>@include scale(1.2);</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label for="transition">
+                            <input type="checkbox" id="transition" checked><span>@include transition(all 0.5s ease-out);</span>
+                        </label>
+                        </p>
+                    </fieldset>
+                </div>
+                <div class="eight columns omega">
+                    <div id="example" class="example border-radius transition">
+                        <h3>Test me!</h3>
+                        <p>I will change when you check or uncheck the options
+                        on my left side.</p>
+                    </div>
+            <hr>
+            <h3>The imaginary SCSS file</h3>
+        <textarea id="imagin" cols="80" style="width: 100%" rows="12"
+>@import 'css3sassmixins';
+
+.example {
+    @include border-radius(5px 50px);
+    @include transition(all 0.5s ease-out);
+}</textarea>
+                </div>
+            </div>
+            
+
+        </div>
+        <script src="site.js"></script>
+        <script type="text/javascript">
+
+              var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-31280816-1']);
+                  _gaq.push(['_trackPageview']);
+
+                    (function() {
+                            var ga = document.createElement('script'); ga.type
+                            = 'text/javascript'; ga.async = true;
+                                ga.src = ('https:' ==
+                                document.location.protocol ? 'https://ssl' :
+                                'http://www') + '.google-analytics.com/ga.js';
+                                    var s =
+                                    document.getElementsByTagName('script')[0];
+                                    s.parentNode.insertBefore(ga, s);
+                                      })();
+
+                                  </script>
+    </body>
+</html>
+
