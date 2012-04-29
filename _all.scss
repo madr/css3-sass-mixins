@@ -92,6 +92,13 @@ $useIEFilters: 0; // might be 0 or 1. disabled by default.
   -webkit-transform: rotate(#{$deg}deg);
 }
 
+@mixin translate ($x, $y) {
+  -moz-transform: translate(#{$x}, #{$y});
+  -o-transform: translate(#{$x}, #{$y});
+  -ms-transform: translate(#{$x}, #{$y});
+  -webkit-transform: translate(#{$x}, #{$y});
+}
+
 @mixin scale ($size) {
 	-moz-transform: scale(#{$size});
 	-o-transform: scale(#{$size});
