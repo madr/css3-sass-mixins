@@ -2,7 +2,7 @@
 (function(document){
   "use strict";
   var ins, i,
-    inc,
+    inc, inc2,
     ie,
     t, v, e,
     rw,
@@ -12,6 +12,7 @@
     toggleIE;
 
   inc = "    %s\n";
+  inc2 = "    %s\r\n";  // for IE and opera support
   ie = "useIEFilters: %d;";
   ins = document.getElementsByTagName("input");
   i = ins.length;
@@ -41,6 +42,7 @@
     if (checked) {
       e = example.className.replace(" " + id, "");
       v = imagin.value.replace(t, "");
+      v = v.replace(inc2.replace("%s", value), "")
     } else {
       e = example.className + " " + id;
       v = imagin.value.replace("}", t + "}");
