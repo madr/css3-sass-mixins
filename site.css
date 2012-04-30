@@ -948,3 +948,22 @@ or wrap each row of columns in a <div class="row"> */
   -ms-transition: all 0.5s ease-out;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
+
+.legacy.box-shadow {
+  -moz-box-shadow: 0 3px 10px black;
+  -webkit-box-shadow: 0 3px 10px black;
+  box-shadow: 0 3px 10px black;
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=3px, Color='#000');
+  -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=3px, Color='#000')"; }
+.legacy.linear-gradient {
+  background-image: -moz-linear-gradient(#333333, #999999);
+  background-image: -o-linear-gradient(#333333, #999999);
+  background-image: -ms-linear-gradient(#333333, #999999);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #333333), color-stop(1, #999999));
+  background-image: -webkit-linear-gradient(#333333, #999999);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#999999');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#999999')"; }
+.legacy.rgba {
+  background-color: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#48black',EndColorStr='#48black}');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#48black',EndColorStr='#48black')"; }

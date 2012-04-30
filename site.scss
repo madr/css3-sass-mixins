@@ -20,3 +20,9 @@
 .rotate                 { @include rotate(-5); }
 .scale                  { @include scale(1.2); }
 .transition             { @include transition(all .5s ease-out); }
+
+.legacy {
+  &.box-shadow             { @include box-shadow(0, 3px, 10px, #000, 1); }
+  &.linear-gradient        { @include linear-gradient(#333, #999, 1); }
+  &.rgba                    { @include rgba(#000, .3, 1); }
+}
