@@ -22,7 +22,7 @@
 //  THE SOFTWARE.
 //
 
-
+// ---- LEGACY IE SUPPORT USING FILTERS ----
 //  Should IE filters be used or not?
 //  PROS: gradients, drop shadows etc will be handled by css.
 //  CONS: will harm the site performance badly, 
@@ -30,6 +30,11 @@
 $useIEFilters: 0
 
 // might be 0 or 1. disabled by default.
+// ---- /LEGACY IE SUPPORT USING FILTERS ----
+
+=background-size($value)
+  -webkit-background-size: $value
+  background-size: $value
 
 =border-image($path, $offsets, $repeats)
   -moz-border-image: $path $offsets $repeats
@@ -51,38 +56,83 @@ $useIEFilters: 0
     filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x}, OffY=#{$y}, Color='#{$iecolor}')
     -ms-filter: quote(progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x}, OffY=#{$y}, Color='#{$iecolor}'))
 
+=box-sizing($value)
+  -moz-box-sizing: $value
+  -webkit-box-sizing: $value
+  box-sizing: $value
+
+// requires sass 3.2
+//@mixin keyframes {
+//     @-moz-keyframes { @content; }
+//      @-ms-keyframes { @content; }
+//       @-o-keyframes { @content; }
+//  @-webkit-keyframes { @content; }
+//          @keyframes { @content; }
+//}
+
 =linear-gradient($from, $to, $ie: $useIEFilters)
   @if $ie != 1
     background-color: $to
-  background-image: -moz-linear-gradient($from, $to)
-  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $from),color-stop(1, $to))
-  background-image: -webkit-linear-gradient($from, $to)
-  background-image: -o-linear-gradient($from, $to)
-  background-image: -ms-linear-gradient($from, $to)
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to))
+  background-image: -webkit-linear-gradient(top, $from, $to)
+  background-image: -moz-linear-gradient(top, $from, $to)
+  background-image: -ms-linear-gradient(top, $from, $to)
+  background-image: -o-linear-gradient(top, $from, $to)
+  background-image: linear-gradient(top, bottom, $from, $to)
   @if $ie == 1
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}')
     -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}'))
 
-=rgba($hex, $alpha, $ie: $useIEFilters)
+=matrix($values)
+  -moz-transform: matrix($values)
+  -ms-transform: matrix($values)
+  -o-transform: matrix($values)
+  -webkit-transform: matrix($values)
+  transform: matrix($values)
+
+=rgba-bg($hex, $alpha, $ie: $useIEFilters)
   @if $ie == 1
-    $hexopac: "#" + ceil($alpha * 255 / 16 * 10) + $hex
     background-color: none
+    $hexopac: ie-hex-str(rgba($hex, $alpha))
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$hexopac}',EndColorStr='#{$hexopac}}')
     -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$hexopac}',EndColorStr='#{$hexopac}'))
   @else
     background-color: $hex
-    background-color: rgba(red($hex), green($hex), blue($hex), $alpha)
+    background-color: rgba($hex, $alpha)
 
-=rotate($deg, $ie: $useIEFilters)
+=perspective($perspective)
+  -moz-perspective: $perspective
+  -ms-perspective: $perspective
+  -webkit-perspective: $perspective
+  perspective: $perspective
+  -moz-transform-style: preserve-3d
+  -ms-transform-style: preserve-3d
+  -webkit-transform-style: preserve-3d
+  transform-style: preserve-3d
+
+=rotate($deg)
   -moz-transform: rotate(#{$deg}deg)
+  -ms-transform: rotate(#{$deg}deg)
   -o-transform: rotate(#{$deg}deg)
   -webkit-transform: rotate(#{$deg}deg)
 
-=scale ($size)
+=scale($size)
   -moz-transform: scale(#{$size})
   -o-transform: scale(#{$size})
   -ms-transform: scale(#{$size})
   -webkit-transform: scale(#{$size})
+
+=transform($values)
+  -moz-transform: $values
+  -o-transform: $values
+  -ms-transform: $values
+  -webkit-transform: $values
+
+=translate($x, $y)
+  -moz-transform: translate($x, $y)
+  -o-transform: translate($x, $y)
+  -ms-transform: translate($x, $y)
+  -webkit-transform: translate($x, $y)
 
 =transition($value)
   -moz-transition: $value
@@ -92,4 +142,3 @@ $useIEFilters: 0
   transition: $value
 
 // ==== /CSS3 SASS MIXINS ====
-

@@ -21,26 +21,7 @@ Clone the git repo in your SASS/SCSS project. Use @import to make it available i
     // scss:
     @import 'css3-sass-mixins/all';
 
-Below you see all available mixins in action. 
-
-    // scss:
-    #foo {
-      @include border-radius(2px 2px 0);
-      @include box-shadow(2px, 2px, 4px, #000);
-      @include linear-gradient(#333, #555);
-      @include rgba(#000, .6);
-      @include rotate(-7);
-      @include transition(all 0.3s ease-out);
-    }
-    
-    // sass (old style):
-    #foo
-      +border-radius(2px 2px 0)
-      +box-shadow(2px, 2px, 4px, #000)
-      +linear-gradient(#333, #555)
-      +rgba(#000, .6)
-      +rotate(-7)
-      +transition(all 0.3s ease-out)
+See the [live demo](http://madr.github.com/css3-sass-mixins) for examples.
 
 IE Filters are optional
 -----------------------
@@ -62,4 +43,4 @@ The code is free to use under the terms of the MIT license.
 Contributors
 ------------
 
-[VoQn](https://github.com/VoQn) (enchanged linear-gradient support), [PhilT](https://github.com/PhilT) (border-radius improvements) [justmarkup](https://github.com) (scale, IE10 prefixes, cleanup)
+[VoQn](https://github.com/VoQn) (enchanged linear-gradient support), [PhilT](https://github.com/PhilT) (border-radius improvements), [daz](https://github.com/daz) (Sprockets compability) [justmarkup](https://github.com) (scale, IE10 prefixes, cleanup)
