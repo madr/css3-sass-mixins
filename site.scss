@@ -13,16 +13,23 @@
     }
 }
 
+.background-size        { @include background-size(100% 100%); }
+.border-image           { @include border-image(url(border.png), 27 27 27 27, round round); }
 .border-radius          { @include border-radius(5px 50px); }
 .box-shadow             { @include box-shadow(0, 3px, 10px, #000); }
+.box-sizing             { @include box-sizing(border-box); }
 .linear-gradient        { @include linear-gradient(#333, #999); }
-.rgba                    { @include rgba(#000, .3); }
+.matrix                 { @include matrix(1.172,-0.008,-0.296,1.098,-105.526,27.779); }
+.rgba-bg                { @include rgba-bg(#000, .3); }
+.perspective            { @include perspective(300px); }
+.scale                  { @include scale(1.2); }
 .rotate                 { @include rotate(-5); }
 .scale                  { @include scale(1.2); }
+.translate              { @include translate(-50px, 20px); }
 .transition             { @include transition(all .5s ease-out); }
 
 .legacy {
   &.box-shadow             { @include box-shadow(0, 3px, 10px, #000, 1); }
   &.linear-gradient        { @include linear-gradient(#333, #999, 1); }
-  &.rgba                    { @include rgba(#000, .3, 1); }
+  &.rgba-bg                { @include rgba-bg(#000, .3, 1); }
 }

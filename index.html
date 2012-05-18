@@ -21,6 +21,16 @@
                     <fieldset>
                         <legend>CSS3 mixins</legend>
                         <div>
+                        <label for="background-size">
+                            <input type="checkbox" id="background-size"><span>@include background-size(100% 100%);</span>
+                        </label>
+                        </div>
+                        <div>
+                        <label for="border-image">
+                            <input type="checkbox" id="border-image"><span>@include border-image(url(border.png), 27 27 27 27, round round);</span>
+                        </label>
+                        </div>
+                        <div>
                         <label for="border-radius">
                             <input type="checkbox" id="border-radius" checked><span>@include border-radius(5px 50px);</span>
                         </label>
@@ -31,13 +41,23 @@
                         </label>
                         </div>
                         <div>
+                        <label for="box-sizing">
+                            <input type="checkbox" id="box-sizing"><span>@include box-sizing(border-box);</span>
+                        </label>
+                        </div>
+                        <div>
                         <label for="linear-gradient">
                             <input type="checkbox" id="linear-gradient"><span>@include linear-gradient(#333, #999);</span>
                         </label>
                         </div>
                         <div>
-                        <label for="rgba">
-                            <input type="checkbox" id="rgba"><span>@include rgba(#000, .3);</span>
+                        <label for="matrix">
+                            <input type="checkbox" id="matrix"><span>@include matrix(1.172,-0.008,-0.296,1.098,-105.526,27.779);</span>
+                        </label>
+                        </div>
+                        <div>
+                        <label for="rgba-bg">
+                            <input type="checkbox" id="rgba-bg"><span>@include rgba-bg(#000, .3);</span>
                         </label>
                         </div>
                         <div>
@@ -48,6 +68,11 @@
                         <div>
                         <label for="scale">
                             <input type="checkbox" id="scale"><span>@include scale(1.2);</span>
+                        </label>
+                        </div>
+                        <div>
+                        <label for="translate">
+                            <input type="checkbox" id="translate"><span>@include translate(-50px, 20px);</span>
                         </label>
                         </div>
                         <div>
