@@ -48,6 +48,9 @@ $useIEFilters: 0;
      -moz-border-radius: $values;
   -webkit-border-radius: $values;
           border-radius: $values;
+             -moz-background-clip: padding; 
+          -webkit-background-clip: padding-box; 
+                  background-clip: padding-box;
 }
 
 @mixin box-shadow ($x, $y, $offset, $hex, $ie: $useIEFilters) {
@@ -93,14 +96,6 @@ $useIEFilters: 0;
   }
 }
 
-@mixin matrix ($values) {
-     -moz-transform: matrix($values);
-      -ms-transform: matrix($values);
-       -o-transform: matrix($values);
-  -webkit-transform: matrix($values);
-          transform: matrix($values);
-}
-
 @mixin rgba-bg ($hex, $alpha, $ie: $useIEFilters) {     
   @if $ie == 1 { 
     background-color: none;
@@ -125,33 +120,33 @@ $useIEFilters: 0;
           transform-style: preserve-3d;
 }
 
-@mixin rotate ($deg) {
-     -moz-transform: rotate(#{$deg}deg);
-      -ms-transform: rotate(#{$deg}deg);
-       -o-transform: rotate(#{$deg}deg);
-  -webkit-transform: rotate(#{$deg}deg);
+@mixin transform ($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
 }
 
-@mixin scale ($size) {
-	   -moz-transform: scale(#{$size});
-	     -o-transform: scale(#{$size});
-	    -ms-transform: scale(#{$size});
-	-webkit-transform: scale(#{$size});
-}
+    @mixin matrix ($a, $b, $c, $d, $e, $f) {
+    	   -moz-transform: matrix($a, $b, $c, $d, #{$e}px, #{$f}px);
+    	     -o-transform: matrix($a, $b, $c, $d, $e, $f);
+    	    -ms-transform: matrix($a, $b, $c, $d, $e, $f);
+    	-webkit-transform: matrix($a, $b, $c, $d, $e, $f);
+              transform: matrix($a, $b, $c, $d, $e, $f);
+    }
 
-@mixin transform ($values) {
-	   -moz-transform: $values;
-	     -o-transform: $values;
-	    -ms-transform: $values;
-	-webkit-transform: $values;
-}
+    @mixin rotate ($deg) {
+      @include transform(rotate(#{$deg}deg));
+    }
 
-@mixin translate ($x, $y) {
-	   -moz-transform: translate($x, $y);
-	     -o-transform: translate($x, $y);
-	    -ms-transform: translate($x, $y);
-	-webkit-transform: translate($x, $y);
-}
+    @mixin scale ($size) {
+      @include transform(scale(#{$size}));
+    }
+
+    @mixin translate ($x, $y) {
+    	@include transform(translate($x, $y));
+    }
 
 @mixin transition ($value) {
      -moz-transition: $value;
