@@ -1,0 +1,63 @@
+@import "./_all";
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-weight: lighter;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: relative;
+  background-color: white;
+  &:after {
+    z-index: -1;
+    position: absolute;
+    bottom: 0px;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    content: "";
+    display: block;
+    background: #ccc;
+    border-radius: 600px 600px 600px 600px / 60px 60px 60px 60px;
+    @include box-shadow(0, 0, 25px, rgba(0, 0, 0, 0.5));
+  }
+  h1 {
+    width: 640px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 42pt;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+article {
+  margin: 10px;
+  padding: 10px;
+}
+#test-suite {
+  width: 640px;
+  margin: 0 auto;
+  li {
+    margin: 20px 10px;
+    padding: 10px;
+    border: solid 5px #9cf;
+    font-size: 20pt;
+  }
+}
+
+#test-border-radius {
+  @include border-radius(30px 10px);
+}
+
+#test-box-shadow {
+  @include box-shadow(0, 5px, 10px, #999);
+}
+
+#test-linear-gradient {
+  @include linear-gradient(#fff, #cef);
+}
