@@ -57,6 +57,11 @@ article {
   -webkit-box-shadow: 0 5px 10px #999999;
   box-shadow: 0 5px 10px #999999; }
 
+#test-box-shadow-inset-with-spread {
+  -moz-box-shadow: 0 0 10px 5px #999999 inset;
+  -webkit-box-shadow: 0 0 10px 5px #999999 inset;
+  box-shadow: 0 0 10px 5px #999999 inset; }
+
 #test-linear-gradient {
   background-color: #cceeff;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #cceeff));
