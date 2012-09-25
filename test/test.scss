@@ -58,6 +58,10 @@ article {
   @include box-shadow(0, 5px, 10px, #999);
 }
 
+#test-box-shadow-inset-with-spread{
+  @include box-shadow(0, 0, 10px, #999, false, inset, 5px);
+}
+
 #test-linear-gradient {
   @include linear-gradient(#fff, #cef);
 }

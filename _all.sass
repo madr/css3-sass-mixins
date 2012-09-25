@@ -50,10 +50,10 @@ $useIEFilters: 0
   -webkit-background-clip: padding-box
   background-clip: padding-box
 
-=box-shadow($x, $y, $offset, $hex, $ie: $useIEFilters)
-  -moz-box-shadow: $x $y $offset $hex
-  -webkit-box-shadow: $x $y $offset $hex
-  box-shadow: $x $y $offset $hex
+=box-shadow($x, $y, $offset, $hex, $ie: $useIEFilters, $inset: null, $spread:null)
+  -moz-box-shadow: $x $y $offset $spread $hex $inset
+  -webkit-box-shadow: $x $y $offset $spread $hex $inset
+  box-shadow: $x $y $offset $spread $hex $inset
   @if $ie == 1
     $iecolor: "#" + red($hex) + green($hex) + blue($hex)
     filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x}, OffY=#{$y}, Color='#{$iecolor}')
