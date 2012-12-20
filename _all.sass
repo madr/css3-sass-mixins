@@ -81,7 +81,7 @@ $useIEFilters: 0
   background-image: -moz-linear-gradient(top, $from, $to)
   background-image: -ms-linear-gradient(top, $from, $to)
   background-image: -o-linear-gradient(top, $from, $to)
-  background-image: linear-gradient(top, bottom, $from, $to)
+  background-image: linear-gradient(top bottom, $from, $to)
   @if $ie == 1
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}')
     -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}'))
